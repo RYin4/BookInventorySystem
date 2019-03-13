@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "firebase": "^5.8.6",
+    "toastr": "^2.1.4",
     "vue": "^2.5.2",
     "vuefire": "^1.4.5"
   },
