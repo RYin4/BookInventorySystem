@@ -1,21 +1,20 @@
-# Book Inventory System
+# Book Inventory System, Web Application
 
-> A Vue.js project
+### Purpose 
+To provide users the ability to add and to delete books in realtime into a database with ease. 
 
-## Build Setup
 
-``` bash
-# install dependencies
-npm install
+### Features 
+- **Firebase** - Realtime database. 
+- **Vue.js** - JavaScript Framework.
+- **Toastr** - Displays notifications when a book is added or removed. 
+- **Bootstrap** - Front-end Library.
 
-# serve with hot reload at localhost:8080
-npm run dev
+### Implementation
+The user can add a new book by entering the title, author, and url web location of a book. As the user submits the required information, the book is entered into a real time database where it is viewable through firebase and on the web application itself. Addition of books into the database is presented with a notification stating that a book has been entered. To delete a book, simply click on the trash can icon that is on the same row of the disired book. User will also be notified once a book is deleted from the database. 
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Screen Shots 
+  ![BookInventorySystem!](https://github.com/RYin4/BookInventorySystem/blob/master/BIS.png "BookInventorySystem")
+    ![BookInventorySystem!](https://github.com/RYin4/BookInventorySystem/blob/master/BIS2.png "BookInventorySystem")
+    ![BookInventorySystem!](https://github.com/RYin4/BookInventorySystem/blob/master/BIS3.png "BookInventorySystem")
+    ![BookInventorySystem!](https://github.com/RYin4/BookInventorySystem/blob/master/BIS4.png "BookInventorySystem")
