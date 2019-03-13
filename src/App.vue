@@ -11,8 +11,9 @@
         <h3>ADD A NEW BOOK</h3>
       </div>
       <div class="card-block mt-3 mb-3 font-weight-bold">
-        <form id="form" >
-          <div class="form-group ml-5 mr-5">
+
+        <form id="form" v-on:submit.prevent="addBook">
+          <div class="form-group ml-5 mr-5" >
             <label for="bookTitle">Title:</label>
             <input type="text" id="bookTitle" class="form-control" v-model="newBook.Title" placeholder="Title">
           </div>
@@ -93,6 +94,14 @@ export default {
         Author: '',
         URL: ''
       }
+    }
+  },
+  methods: {
+    addBook: function() {
+      bookRef.push(this.newBook);
+      this.newBook.Title = '';
+      this.newBook.Author = '';
+      this.newBook.URL = '';
     }
   }
 }
