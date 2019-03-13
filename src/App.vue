@@ -1,7 +1,17 @@
+
 <template>
+
+
   <div id="app" class="container">
-    <div class="page-header text-center">
+    <nav class="navbar navbar-light bg-light " >
+      <a class="navbar-brand fas fa-book" href="#"></a>
+      Randy Yin
+    </nav>
+
+    <div class="page-header text-center mt-5 mb-5">
       <h1>BOOK INVENTORY SYSTEM </h1>
+      <h5>A simple book inventory management system that allows</h5>
+      <h5>the user to enter and delete a book from a database.</h5>
     </div>
     <div class="card mt-3" >
       <div class="card-header">
@@ -25,7 +35,7 @@
         </form>
       </div>
     </div>
-    <div class="card mt-3">
+    <div class="card mt-3 mb-5">
       <div class="card-header">
         <h3>LIST OF BOOKS</h3>
       </div>
@@ -50,6 +60,8 @@
     </div>
   </div>
 </template>
+
+
 
 <script>
 import HelloWorld from './components/HelloWorld'
@@ -99,6 +111,7 @@ export default {
       this.newBook.Title = '';
       this.newBook.Author = '';
       this.newBook.URL = '';
+      toastr.success("Book Added");
     },
     removeBook: function(book) {
       bookRef.child(book['.key']).remove();
