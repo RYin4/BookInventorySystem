@@ -1,4 +1,4 @@
-# vuejsfirebase
+# Book Inventory System
 
 > A Vue.js project
 
