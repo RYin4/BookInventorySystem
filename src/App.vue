@@ -40,12 +40,14 @@
             <tr>
               <th>Title</th>
               <th>Author</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="Book in Books">
               <td><a v-bind:href="Book.Url">{{Book.Title}}</a></td>
               <td>{{Book.Author}}</td>
+              <td><span class="fas fa-trash-alt" v-on:click="removeBook(Book)"></span></td>
             </tr>
           </tbody>
         </table>
@@ -102,6 +104,9 @@ export default {
       this.newBook.Title = '';
       this.newBook.Author = '';
       this.newBook.URL = '';
+    },
+    removeBook: function(book) {
+      bookRef.child(book['.key']).remove();
     }
   }
 }
@@ -112,7 +117,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
   color: #2c3e50;
   margin-top: 60px;
 }
