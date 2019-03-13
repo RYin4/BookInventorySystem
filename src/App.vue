@@ -1,17 +1,13 @@
 <template>
-
   <div id="app" class="container">
-
     <div class="page-header text-center">
       <h1>BOOK INVENTORY SYSTEM </h1>
     </div>
-    
     <div class="card mt-3" >
       <div class="card-header">
         <h3>ADD A NEW BOOK</h3>
       </div>
       <div class="card-block mt-3 mb-3 font-weight-bold">
-
         <form id="form" v-on:submit.prevent="addBook">
           <div class="form-group ml-5 mr-5" >
             <label for="bookTitle">Title:</label>
@@ -29,7 +25,6 @@
         </form>
       </div>
     </div>
-
     <div class="card mt-3">
       <div class="card-header">
         <h3>LIST OF BOOKS</h3>
@@ -56,11 +51,14 @@
   </div>
 </template>
 
-
-
 <script>
 import HelloWorld from './components/HelloWorld'
+
+//Firebase database 
 import Firebase from 'firebase'
+
+//toast notifications
+import toastr from 'toastr'
 
 //access to the firebase api 
 let config = {
@@ -76,11 +74,8 @@ let config = {
 let app = Firebase.initializeApp(config);
 let db = app.database();
 
-//ref to books node in the firebase db
+//reference to books node in the firebase db
 let bookRef = db.ref('Books');
-
-
-
 
 
 export default {
@@ -107,6 +102,7 @@ export default {
     },
     removeBook: function(book) {
       bookRef.child(book['.key']).remove();
+      toastr.success("Book Removed");
     }
   }
 }
