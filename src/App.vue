@@ -1,14 +1,35 @@
 <template>
+
   <div id="app" class="container">
+
     <div class="page-header">
       <h1>Vue.js 2 and Firebase Sample Application </h1>
     </div>
+
     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Add Book</h3>
+      </div>
+
+      <div class="panel-body">
+        <form id="form" class="form-inline">
+          <div class="form-group">
+            <label for="bookTitle">Title:</label>
+            <input type="text" id="bookTitle" class="form-control" v-model="newBook.Title">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+
       <div class="panel-heading">
         <h3>Books Lists</h3>
       </div>
+
       <div class="panel-body">
         <table class="table table-striped">
+
           <thead>
             <tr>
               <th>
@@ -19,22 +40,21 @@
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr v-for="book in books">
-              <td>
-                <a v-bind:href="book.url">{{book.title}}</a>
-              </td>
-              <td>
-                {{book.author}}
-              </td>
 
+          <tbody>
+            <tr v-for="Book in Books">
+              <td>
+                <a v-bind:href="Book.Url">{{Book.Title}}</a>
+              </td>
+              <td>
+                {{Book.Author}}
+              </td>
             </tr>
           </tbody>
-        </table>
+
+          </table>
         </div>
     </div>
-
-
   </div>
 </template>
 
@@ -57,7 +77,7 @@ let app = Firebase.initializeApp(config);
 let db = app.database();
 
 //ref to books node in the firebase db
-let bookRef = db.ref('books');
+let bookRef = db.ref('Books');
 
 
 
@@ -67,7 +87,16 @@ export default {
   name: 'App',
   //data access
   firebase: {
-    books: booksRef
+    Books: bookRef
+  },
+  data () {
+    return {
+      newBook: {
+        Title: '',
+        Author: '',
+        URL: ''
+      }
+    }
   }
 }
 </script>
@@ -77,7 +106,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  
   color: #2c3e50;
   margin-top: 60px;
 }
