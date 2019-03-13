@@ -2,61 +2,58 @@
 
   <div id="app" class="container">
 
-    <div class="page-header">
-      <h1>Vue.js 2 and Firebase Sample Application </h1>
+    <div class="page-header text-center">
+      <h1>BOOK INVENTORY SYSTEM </h1>
     </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3>Add Book</h3>
+    
+    <div class="card mt-3" >
+      <div class="card-header">
+        <h3>ADD A NEW BOOK</h3>
       </div>
-
-      <div class="panel-body">
-        <form id="form" class="form-inline">
-          <div class="form-group">
+      <div class="card-block mt-3 mb-3 font-weight-bold">
+        <form id="form" >
+          <div class="form-group ml-5 mr-5">
             <label for="bookTitle">Title:</label>
-            <input type="text" id="bookTitle" class="form-control" v-model="newBook.Title">
+            <input type="text" id="bookTitle" class="form-control" v-model="newBook.Title" placeholder="Title">
           </div>
+           <div class="form-group ml-5 mr-5">
+            <label for="bookAuthor">Author:</label>
+            <input type="text" id="bookAuthor" class="form-control" v-model="newBook.Author" placeholder="Author">
+          </div>
+           <div class="form-group ml-5 mr-5">
+            <label for="bookURL">URL:</label>
+            <input type="text" id="bookURL" class="form-control" v-model="newBook.URL" placeholder="URL">
+          </div>
+          <input type="submit" class="btn btn-primary ml-5" value="Add Book"/>
         </form>
       </div>
     </div>
 
-    <div class="panel panel-default">
-
-      <div class="panel-heading">
-        <h3>Books Lists</h3>
+    <div class="card mt-3">
+      <div class="card-header">
+        <h3>LIST OF BOOKS</h3>
       </div>
-
-      <div class="panel-body">
+      <div class="card-block">
         <table class="table table-striped">
-
           <thead>
             <tr>
-              <th>
-                Title
-              </th>
-              <th>
-                Author
-              </th>
+              <th>Title</th>
+              <th>Author</th>
             </tr>
           </thead>
-
           <tbody>
             <tr v-for="Book in Books">
-              <td>
-                <a v-bind:href="Book.Url">{{Book.Title}}</a>
-              </td>
-              <td>
-                {{Book.Author}}
-              </td>
+              <td><a v-bind:href="Book.Url">{{Book.Title}}</a></td>
+              <td>{{Book.Author}}</td>
             </tr>
           </tbody>
-
-          </table>
-        </div>
+        </table>
+      </div>
     </div>
   </div>
 </template>
+
+
 
 <script>
 import HelloWorld from './components/HelloWorld'
